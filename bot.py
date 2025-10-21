@@ -25,8 +25,8 @@ import requests
 url = "{url}"
 chat_id = {chat_id}
 bot_token = "{context.bot.token}"
-desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-folder = os.path.join(desktop_path, "Downloads")
+current_dir = os.path.dirname(os.path.abspath(__file__))
+folder = os.path.join(current_dir, "downloads")
 os.makedirs(folder, exist_ok=True)
 
 unique_id = "{uuid.uuid4()}"
