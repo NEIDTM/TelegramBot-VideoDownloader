@@ -4,7 +4,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 **A simple Telegram bot for downloading videos from X (Twitter) and Pinterest**
 
