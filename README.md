@@ -1,11 +1,16 @@
 # 🎬 Video Downloader Telegram Bot
 
-<div align="center">
+<p>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="50" height="50"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="50" height="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="X/Twitter" width="50" height="50"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Pinterest.svg/2048px-Pinterest.svg.png" alt="Pinterest" width="54" height="54"/>
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)
 
 **A simple Telegram bot for downloading videos from X (Twitter) and Pinterest**
+
+<div align="center">
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Requirements](#-requirements)
 
@@ -30,12 +35,53 @@ Before installation, make sure you have:
 - **FFmpeg** (for video conversion)
 - **pip** (Python package manager)
 
-### Installing FFmpeg
+### Installing Python
 
 **Windows:**
+1. Download Python from [python.org](https://www.python.org/downloads/)
+2. Run the installer
+3. ✅ **IMPORTANT:** Check "Add Python to PATH" during installation
+4. Verify installation:
 ```bash
-# Download from official website: https://ffmpeg.org/download.html
-# Add FFmpeg to PATH
+python --version
+```
+
+**macOS:**
+```bash
+brew install python3
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+### Installing FFmpeg
+
+FFmpeg is required for converting videos to MP4 format.
+
+**Windows:**
+
+**Option 1: Using Chocolatey (Easiest)**
+```bash
+choco install ffmpeg
+```
+
+**Option 2: Manual Installation**
+1. Download FFmpeg from [gyan.dev/ffmpeg/builds](https://www.gyan.dev/ffmpeg/builds/)
+2. Download **ffmpeg-release-essentials.zip**
+3. Extract the archive to `C:\ffmpeg`
+4. Add FFmpeg to PATH:
+   - Press `Win + R` → type `sysdm.cpl` → press Enter
+   - Go to **"Advanced"** tab → click **"Environment Variables"**
+   - In **"System variables"** section, find `Path` → click **"Edit"**
+   - Click **"New"** → add path: `C:\ffmpeg\bin`
+   - Click **"OK"** on all windows
+5. **Restart your terminal** (or reboot your computer)
+6. Verify installation:
+```bash
+ffmpeg -version
 ```
 
 **macOS:**
@@ -49,50 +95,160 @@ sudo apt update
 sudo apt install ffmpeg
 ```
 
+Verify FFmpeg installation:
+```bash
+ffmpeg -version
+```
+
 ## 📦 Installation
 
-1. **Clone the repository:**
+### Step 1: Clone the Repository
 ```bash
 git clone https://github.com/NEIDTM/TelegramBot-VideoDownloader.git
 cd TelegramBot-VideoDownloader
 ```
 
-2. **Install dependencies:**
+### Step 2: Install Python Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Create a `requirements.txt` file with the following content:**
-```txt
-python-telegram-bot
-yt-dlp
-requests
+If you encounter permission errors on Linux/macOS, use:
+```bash
+pip install --user -r requirements.txt
 ```
 
-4. **Get your bot token:**
-   - Open [@BotFather](https://t.me/BotFather) in Telegram
-   - Send the `/newbot` command
-   - Follow the instructions and save the token
+### Step 3: Get Your Bot Token
 
-5. **Configure the bot:**
-   - Open the `bot.py` file
-   - Replace `YOUR_BOT_TOKEN` with your actual token:
+1. Open Telegram and find [@BotFather](https://t.me/BotFather)
+2. Send the command `/newbot`
+3. Follow the instructions:
+   - Choose a name for your bot (e.g., "My Video Downloader")
+   - Choose a username for your bot (must end with 'bot', e.g., "my_video_dl_bot")
+4. BotFather will give you a token that looks like:
+   ```
+   1234567890:ABCdefGHIjklMNOpqrsTUVwxyz
+   ```
+5. **Copy this token** - you'll need it in the next step
+
+### Step 4: Configure the Bot
+
+1. Open the `bot.py` file in any text editor
+2. Find this line (near the bottom of the file):
    ```python
    application = ApplicationBuilder().token("YOUR_BOT_TOKEN").build()
    ```
+3. Replace `YOUR_BOT_TOKEN` with your actual token from BotFather:
+   ```python
+   application = ApplicationBuilder().token("1234567890:ABCdefGHIjklMNOpqrsTUVwxyz").build()
+   ```
+4. Save the file
 
-## 🚀 Usage
+### Step 5: Run the Bot
 
-1. **Run the bot:**
 ```bash
 python bot.py
 ```
 
-2. **In Telegram:**
-   - Find your bot by name
-   - Send the `/start` command
-   - Send a video link from X or Pinterest
-   - Wait for the download and receive your video!
+If you see a message like "Application started", your bot is running! 🎉
+
+**Keep the terminal window open** - the bot will stop if you close it.
+
+## 🚀 Usage
+
+### Starting the Bot
+
+1. Make sure the bot is running (see Step 5 above)
+2. Open Telegram on your phone or desktop
+3. Find your bot by the username you created (e.g., @my_video_dl_bot)
+4. Click **"Start"** or send the `/start` command
+
+### Downloading Videos
+
+1. Copy a video link from X (Twitter) or Pinterest
+2. Paste the link into the chat with your bot
+3. Wait a few seconds - the bot will send you a message confirming the download started
+4. The video will be sent to you automatically when ready!
+
+### Supported Platforms
+
+✅ **X (Twitter):**
+- `https://twitter.com/username/status/123456789`
+- `https://x.com/username/status/123456789`
+
+✅ **Pinterest:**
+- `https://pinterest.com/pin/123456789/`
+- `https://pin.it/abc123`
+
+### Example
+
+```
+You: https://twitter.com/elonmusk/status/123456789
+
+Bot: Your download request has been sent, the video will start downloading in the background.
+
+[A few moments later...]
+
+Bot: [Sends video file]
+```
+
+## 📂 Project Structure
+
+After running the bot, your folder will look like this:
+
+```
+TelegramBot-VideoDownloader/
+├── bot.py                          # Main bot file
+├── requirements.txt                # Python dependencies
+├── README.md                       # This file
+├── download_script_[uuid].py       # Temporary scripts (auto-deleted)
+└── downloads/                      # Downloaded videos (auto-deleted after sending)
+    └── video_[uuid].mp4
+```
+
+**Note:** Temporary files are automatically deleted after use to save disk space.
+
+
+## 🔧 Advanced Configuration
+
+### Running in Background (Linux/macOS)
+
+To keep the bot running after closing the terminal:
+
+```bash
+nohup python bot.py &
+```
+
+To stop the bot:
+```bash
+pkill -f bot.py
+```
+
+### Running as a Service (Linux)
+
+Create a systemd service file `/etc/systemd/system/videobot.service`:
+
+```ini
+[Unit]
+Description=Telegram Video Downloader Bot
+After=network.target
+
+[Service]
+Type=simple
+User=youruser
+WorkingDirectory=/path/to/TelegramBot-VideoDownloader
+ExecStart=/usr/bin/python3 bot.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable and start the service:
+```bash
+sudo systemctl enable videobot
+sudo systemctl start videobot
+```
 
 ## 📝 Link Examples
 
