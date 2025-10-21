@@ -114,30 +114,6 @@ The bot supports the following link formats:
 6. Video is sent to the user in Telegram
 7. Temporary files are deleted
 
-## 🔒 Security
-
-- Bot processes only one request per user at a time
-- Temporary scripts are automatically deleted after execution
-- Downloaded videos are removed after sending to Telegram
-
-## 🤝 Contributing
-
-We welcome contributions to the project! If you have suggestions or found a bug:
-
-1. Fork the repository
-2. Create a branch for your changes (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is distributed under the MIT License. See [LICENSE](LICENSE) for details.
-
-## 📧 Contact
-
-If you have questions or suggestions, please create an Issue in the repository.
-
 ---
 
 <div align="center">
