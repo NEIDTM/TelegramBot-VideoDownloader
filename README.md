@@ -3,7 +3,7 @@
 <p>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="50" height="50"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="50" height="50"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="X/Twitter" width="50" height="50"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/X_logo_2023_%28white%29.png/500px-X_logo_2023_%28white%29.png" alt="X/Twitter" width="50" height="50"/>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Pinterest.svg/2048px-Pinterest.svg.png" alt="Pinterest" width="54" height="54"/>
 </p>
 
